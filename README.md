@@ -57,7 +57,7 @@ There are two ways to set it:
 * `burlp#setReq` or `burlp#setRequester`,
 * with the prefix itself. (e.g. `https(a, b).google.com`)
 
-(Note: I recommend the second way (`prefix(a, b)`) so there aren't any conflicts with other libs using burlp. The first way only changes for prefixes that haven't defined their own.)
+(Note: I recommend the second way (`prefix(a, b)`) so there aren't any conflicts with other libs using burlp. The first way only changes for prefixes that haven't defined their own. You can assign the `https` to it: `const https = https(a, b)`. It will work just fine.)
 
 In both of them, there are two different reactions depending on the arguments passed. The first one is passing a function as the first one, and that's pretty much it. The function must accept one parameter that is the URL generated and return some object. For example, some object that you can do `.get()` or `.request()`. Your choice.
 For example:
