@@ -1,6 +1,6 @@
 {
   "name": "burlp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create urls with fashion I guess",
   "main": "./lib/index.js",
   "directories": {
