@@ -1,0 +1,33 @@
+{
+  "name": "burlp",
+  "version": "1.0.0",
+  "description": "Create urls with fashion I guess",
+  "main": "./lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo b"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PgBiel/burlp.git"
+  },
+  "keywords": [
+    "url",
+    "build"
+  ],
+  "author": "PgBiel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PgBiel/burlp/issues"
+  },
+  "homepage": "https://github.com/PgBiel/burlp#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.4"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}
