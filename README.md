@@ -87,4 +87,4 @@ To include a slash, you can use `["/"]` or `("/")`. Both will work. And, once yo
 
 ### Troubleshooting
 
-If when you complete a URL path (a.k.a. when you do `urlPathHere()`) and you get an error like `Class constructor "something" cannot be invoked without 'new'`, that means you passed a class as the requester. To add the wrapping functionality, in that case, you have to pass `true` as the second argument.
+If when you complete a URL path (a.k.a. when you do `urlPathHere()`) you get an error like `Class constructor "something" cannot be invoked without 'new'`, that means you passed a class as the requester. To add the wrapping functionality, in that case, you have to pass `true` as the second argument.
