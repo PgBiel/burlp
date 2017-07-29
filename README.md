@@ -72,13 +72,19 @@ burlp.setRequester(path => {
 });
 ```
 
-The second reaction is by giving an object and passing `true` as the second argument. This will cause it to wrap the object in a function and all of its properties that are functions aswell. And what will this do? Well, say you pass this set of arguments:
+The second reaction is by giving an object or passing `true` as the second argument. This will cause it to wrap the object in a function and all of its properties that are functions aswell. And what will this do? Well, say you pass this argument:
 
 ```js
-burlp.setRequester({ thing: (url, somethingElse) => doSomethingWithUrl(url, somethingElse) }, true);
+burlp.setRequester({ thing: (url, somethingElse) => doSomethingWithUrl(url, somethingElse) });
 ```
 The requester will wrap the function and will make it so you don't need to pass the `url` parameter, so you can just call `https.google.com().thing(somethingElse)` and it will work. This means that to directly use libraries like `superagent`, this can come in handy.
+
+(Remember the part of the `true` argument. If the requester is a function or a class and you want to use the wrap functionality, pass `true` aswell.)
 
 ### URL paths
 
 To include a slash, you can use `["/"]` or `("/")`. Both will work. And, once you do it once, you don't have to do it multiple times (any more accessing will result in adding a slash for each).
+
+### Troubleshooting
+
+If when you complete a URL path (a.k.a. when you do `urlPathHere()`) and you get an error like `Class constructor "something" cannot be invoked without 'new'`, that means you passed a class as the requester. To add the wrapping functionality, in that case, you have to pass `true` as the second argument.

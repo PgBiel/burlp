@@ -6,7 +6,7 @@ toStrings = ["toString", "valueOf", "inspect", "constructor",
 requester = (path) -> {}
 
 setReq = (req, passProp = no) ->
-  if passProp
+  if passProp or typeof req is "object"
     throw new TypeError "Requester should not be null or undefined." unless req?
     oldReq = req
     req = passPropFunc oldReq

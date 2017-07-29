@@ -33,7 +33,7 @@ pathTools = module.exports =
           @path += pathjoin @path, str
       else
         return if req?
-          if passProp then passPropFunc(req) @path else req @path
+          if passProp or typeof req is "object" then passPropFunc(req) @path else req @path
         else
           requester @path
       @proxy
