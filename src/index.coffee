@@ -26,13 +26,14 @@ handler =
       -> "[object Object]"
     else
       data = {}
-      func = (req, passProp = no) ->
-        if typeof req is "string"
-          pathTools.pathGen k, req, @req, @passProp
-        else
-          @req = req
-          @passProp = Boolean passProp
+      func = (args...) ->
+        return @proxy unless args.length >= 1
+        if args.some((el) -> typeof el isnt "string")
+          @req = args[0]
+          @passProp = Boolean args[1]
           @proxy
+        else
+          pathTools.pathGen k, req, @req, @passProp
       func = func.bind(data)
       data.proxy = new Proxy func, get: (t, initial) ->
         if initial in toStrings
