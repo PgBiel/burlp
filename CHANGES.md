@@ -1,3 +1,8 @@
+# 2
+## 2.0
+### 2.0.0 (Initial)
+This version removed `burlp#setReq` and `burlp#setRequester` while keeping individual requesters for prefixes. This is due to possible conflicts between libs. So, a default requester, [`snekfetch`](https://npmjs.com/snekfetch), was introduced as a dependency.
+
 # 1
 ## 1.1
 ### 1.1.3

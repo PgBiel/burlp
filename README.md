@@ -53,13 +53,11 @@ Great, we've got our string URL. But, you can actually simplify the work of feed
 https.google.com();
 ```
 
-There are two ways to set it:
-* `burlp#setReq` or `burlp#setRequester`,
-* with the prefix itself. (e.g. `https(a, b).google.com`)
+By default, [`snekfetch`](https://www.npmjs.com/package/snekfetch) is used as the requester (it's set as a dependency). This means that once you called it you could do, for example, `.get().send({ this: 1 })`. However, you can still set your own requester.
 
-(Note: I recommend the second way (`prefix(a, b)`) so there aren't any conflicts with other libs using burlp. The first way only changes for prefixes that haven't defined their own. You can assign the `https` to it: `const https = https(a, b)`. It will work just fine.)
+To set it, we use the prefix object (in this case, `https`, but remember that it can be any). It is a function as well, so we call it.
 
-In both of them, there are two different reactions depending on the arguments passed. The first one is passing a function as the first one, and that's pretty much it. The function must accept one parameter that is the URL generated and return some object. For example, some object that you can do `.get()` or `.request()`. Your choice.
+There are two different reactions depending on the arguments passed. The first one is passing a function as the first one, and that's pretty much it. The function must accept one parameter that is the URL generated and return some object. For example, some object that you can do `.get()` or `.request()`. Your choice.
 For example:
 
 ```js
@@ -72,14 +70,14 @@ const https = burlp.https(path => {
 });
 ```
 
-The second reaction is by giving an object or passing `true` as the second argument. This will cause it to wrap the object in a function and all of its properties that are functions aswell. And what will this do? Well, say you pass this argument:
+The second reaction is by giving an object or passing `true` as the second argument. This will cause it to wrap the object in a function and all of its properties that are functions as well. And what will this do? Well, say you pass this argument:
 
 ```js
 const https = burlp.https({ thing: (url, somethingElse) => doSomethingWithUrl(url, somethingElse) });
 ```
 The requester will wrap the function and will make it so you don't need to pass the `url` parameter, so you can just call `https.google.com().thing(somethingElse)` and it will work. This means that to directly use libraries like `superagent`, this can come in handy.
 
-(Remember the part of the `true` argument. If the requester is a function or a class and you want to use the wrap functionality, pass `true` aswell.)
+(Remember the part of the `true` argument. If the requester is a function or a class and you want to use the wrap functionality, pass `true` as well.)
 
 ### URL paths
 

@@ -3,6 +3,9 @@ passPropFunc = require "./passProp"
 util = require "util"
 toStrings = ["toString", "valueOf", "inspect", "constructor",
   Symbol.toPrimitive, util.inspect.custom]
+###
+Old requester code
+
 requester = (path) -> {}
 
 setReq = (req, passProp = no) ->
@@ -15,12 +18,11 @@ setReq = (req, passProp = no) ->
   requester = req
   pathTools.setReq req
   yes
+###
 
 handler =
   get: (t, k) ->
-    if k in ["setRequester", "setReq"]
-      setReq
-    else if k is "requester"
+    if k is "requester"
       requester
     else if k in toStrings
       -> "[object Object]"
