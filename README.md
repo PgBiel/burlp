@@ -63,7 +63,7 @@ In both of them, there are two different reactions depending on the arguments pa
 For example:
 
 ```js
-burlp.setRequester(path => {
+const https = burlp.https(path => {
   return {
     get(blah1, blah2) {
       return myLib.get(path, blah1, blah2).then(response => response.body);
@@ -75,7 +75,7 @@ burlp.setRequester(path => {
 The second reaction is by giving an object or passing `true` as the second argument. This will cause it to wrap the object in a function and all of its properties that are functions aswell. And what will this do? Well, say you pass this argument:
 
 ```js
-burlp.setRequester({ thing: (url, somethingElse) => doSomethingWithUrl(url, somethingElse) });
+const https = burlp.https({ thing: (url, somethingElse) => doSomethingWithUrl(url, somethingElse) });
 ```
 The requester will wrap the function and will make it so you don't need to pass the `url` parameter, so you can just call `https.google.com().thing(somethingElse)` and it will work. This means that to directly use libraries like `superagent`, this can come in handy.
 

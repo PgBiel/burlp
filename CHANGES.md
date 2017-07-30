@@ -1,5 +1,8 @@
 # 1
 ## 1.1
+### 1.1.3
+Updated examples to the recommended requester form in README.
+
 ### 1.1.2
 Made typings and fixed prefix() to accept an unlimited number of text to add on and return itself when no arguments are passed.
 
