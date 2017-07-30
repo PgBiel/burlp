@@ -53,7 +53,7 @@ Great, we've got our string URL. But, you can actually simplify the work of feed
 https.google.com();
 ```
 
-By default, [`snekfetch`](https://www.npmjs.com/package/snekfetch) is used as the requester (it's set as a dependency). This means that once you called it you could do, for example, `.get().send({ this: 1 })`. However, you can still set your own requester.
+By default, [`snekfetch`](https://www.npmjs.com/package/snekfetch) is used as the requester (it's set as a dependency). This means that once you called it you could do, for example, `.get().then(response => console.log("Request successful"))`. However, you can still set your own requester.
 
 To set it, we use the prefix object (in this case, `https`, but remember that it can be any). It is a function as well, so we call it.
 
